@@ -26,6 +26,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- =======================================================
   * Template Name: iPortfolio - v3.10.0
@@ -48,10 +49,10 @@
         <img src="assets/img/testimonials/fasal black.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Sharjas Fasal B</a></h1>
         <div class="social-links mt-3 text-center">
-          <a href="https://twitter.com/SharjasF?t=fFjQPSkWaDQDhMg1luPGUQ&s=09" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="https://www.facebook.com/sharjas.fasal" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="https://www.instagram.com/fazal__shaa/" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/sharjas-fasal-b-668915219" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://twitter.com/SharjasF?t=fFjQPSkWaDQDhMg1luPGUQ&s=09" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="https://www.facebook.com/sharjas.fasal" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/fazal__shaa/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/sharjas-fasal-b-668915219" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
       </div>
 
@@ -590,7 +591,7 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="https://script.google.com/macros/s/AKfycbzwdM7RSpiY3fC1YvSzfZoLGcFwKxu7UMIOlU0p_Nw5Zm7j7GEkCCHoNwbW25LFtmSO3Q/exec" method="post" role="form" class="php-email-form">
+            <form id="submit-form" action="" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -656,6 +657,26 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbzwdM7RSpiY3fC1YvSzfZoLGcFwKxu7UMIOlU0p_Nw5Zm7j7GEkCCHoNwbW25LFtmSO3Q/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
+                alert("Form submitted successfully")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
+        })
+    })
+</script>
 
 </body>
 
